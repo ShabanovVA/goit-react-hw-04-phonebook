@@ -5,8 +5,15 @@ import { Filter } from "./Filter/Filter";
 import { Wrapper, Title, TitleFilter } from './App.styled';
 
 export default function App() {
-  const [contacts, setContacts] = useState(() => JSON.parse(window.localStorage.getItem('contacts')) ?? '');
+  const [contacts, setContacts] = useState([]);
   const [filtered, setFiltered] = useState('');
+
+  const localStorageGetContacts = window.localStorage.getItem('contacts');
+  useEffect(() => {
+    if (localStorageGetContacts) {
+      setContacts(JSON.parse(localStorageGetContacts));
+    }
+  }, []);
 
   useEffect(() => {
     window.localStorage.setItem(contacts, JSON.stringify(contacts));
@@ -32,7 +39,7 @@ export default function App() {
     const getFiltredContacts = () => {
       const normalizedFilter = filtered.toLowerCase();
       return contacts.filter(contact =>
-        contact.name.toLowerCase().includes(normalizedFilter));
+        contact.name.toLowerCase().includes(normalizedFilter))
     };
 
     const filtredContacts = getFiltredContacts();
