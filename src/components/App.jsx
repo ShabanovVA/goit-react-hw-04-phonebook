@@ -4,11 +4,13 @@ import { ContactList } from "./ContactList/ContactList";
 import { Filter } from "./Filter/Filter";
 import { Wrapper, Title, TitleFilter } from './App.styled';
 
+const localStorageGetContacts = window.localStorage.getItem('contacts');
+
+
 export default function App() {
   const [contacts, setContacts] = useState([]);
   const [filtered, setFiltered] = useState('');
 
-  const localStorageGetContacts = window.localStorage.getItem('contacts');
   useEffect(() => {
     if (localStorageGetContacts) {
       setContacts(JSON.parse(localStorageGetContacts));
