@@ -2,9 +2,11 @@ import styled from "styled-components";
 
 export const FormContact = styled.form`
 display:flex;
+align-items: center;
 flex-direction: column;
 width:500px;
 border: 1px solid black;
+border-radius: 10px;
 background-color:gainsboro;
 `;
 

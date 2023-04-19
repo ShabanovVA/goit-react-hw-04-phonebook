@@ -2,9 +2,13 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
 display:flex;
+align-items: center;
 margin-left:20px;
 gap:10px;
 flex-direction:column;
+border: 2px solid grey;
+border-radius: 20px;
+background-color: lightskyblue;
 `
 
 export const Title = styled.h2`
