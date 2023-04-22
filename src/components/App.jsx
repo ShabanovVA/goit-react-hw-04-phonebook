@@ -18,7 +18,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem(contacts, JSON.stringify(contacts));
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
   const createContact = (data) => {
